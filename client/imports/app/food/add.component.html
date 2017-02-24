@@ -1,0 +1,36 @@
+<h1>
+        {{ title }}</h1>
+
+<form [formGroup]="foodForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+                <label>نام غذا</label>
+                <input type="text" class="form-control" id="title" formControlName="title">
+        </div>
+
+        <div class="form-group">
+                <label>دستور تهیه</label>
+                <input type="text" class="form-control" id="recepie" formControlName="recepie">
+
+        </div>
+
+        <div class="form-group">
+                <label>مواد لازم</label>
+                <input type="text" class="form-control" id="material" formControlName="material">
+
+        </div>
+        <div class="radio" *ngFor="let g of type">
+                <label>
+                        <input type="radio"
+                                formControlName="type"
+                                [value]="g">
+                        {{g}}
+                        </label>
+        </div>
+        </div>
+
+
+
+        <input type="checkbox" checklist-value="false" formControlName="public"> public
+
+        <button type="submit" class="btn btn-primary" [disabled]="!foodForm.valid">Submit</button>
+</form>

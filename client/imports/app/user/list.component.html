@@ -1,0 +1,34 @@
+<p>{{title}}</p>
+<div class="col-sm-12">
+    <h2>User List</h2>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ردیف</th>
+                    <th>رایانامه</th>
+                    <th>نام کاربری</th>
+                    <th>نام و نام خانوادگی</th>
+                    <th>تاریخ عضویت</th>
+                    <th>شهر</th>
+                    <th>عملیات</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!--<tr *ngFor="let user of users | async">-->
+                    <!--<td>{{user._id}}</td>-->
+                    <td>{{user.emails}}</td>
+                    <td>{{user.profile.fname}}</td>
+                    <td>{{user.profile.lname}}</td>
+                    <!--<td>{{u.regdate}}</td>-->
+                    <td>{{user.profile.city}}</td>
+                    <td>{{user.profile.city}}</td>
+                    <td>
+                        <i class="glyphicon glyphicon-edit" [routerLink]="['/edit' , user._id]"></i>
+                        <i class="glyphicon glyphicon-remove" (click)="remove(user)"></i>
+                    </td>
+                <!--</tr>-->
+            </tbody>
+        </table>
+    </div>
+</div>

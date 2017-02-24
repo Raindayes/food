@@ -1,0 +1,32 @@
+<p>{{title}}</p>
+ <input type="text" #searchtext placeholder="Search by type">
+             <button type="button" (click)="search(searchtext.value)">Search</button>
+
+<div class="col-sm-12">
+    <h2>Food List</h2>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>نام غذا</th>
+                    <th>موادلازم</th>
+                    <th>دستورتهیه</th>
+                    <th>نوع</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let food of foods | async">
+                
+                    <td>{{food.title}}</td>
+                    <td>{{food.material}}</td>
+                    <td>{{food.recepie}}</td>
+                    <td>{{food.type}}</td>
+                    <td>
+                        <i class="glyphicon glyphicon-edit" [routerLink]="['/edit' , food._id]"></i>
+                        <i class="glyphicon glyphicon-remove" (click)="remove(food)"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
