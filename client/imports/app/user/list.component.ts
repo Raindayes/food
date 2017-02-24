@@ -39,19 +39,14 @@ export class UserListComponent implements OnInit , OnDestroy{
   
     console.log (this.user);
     
-    
-
     // this.users =Observable.create (this.user);
     // this.users = this.userDataService.getData().zone();
 
-  // this.userSub = MeteorObservable.subscribe('parties').subscribe(() => {
-  //       this.users = Users.find({} ).zone();
-  //     });
-  
+
   // this.userSub = MeteorObservable.subscribe('users').subscribe(() => {
   //       this.users = Users.find({} ).zone();
   
-  //     });
+      // });
     console.log(this.users);
 
 

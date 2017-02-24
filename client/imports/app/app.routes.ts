@@ -9,16 +9,18 @@ import { UserEditComponent } from './user/edit.component';
 import { HomeComponent } from './home.component';
 import { FoodListComponent } from './food/list.component';
 import { FoodAddComponent } from './food/add.component';
+import { AuthComponent } from './auth/auth.component';
 
 export const routes: Routes = [
 
   { path: 'home', component: HomeComponent },
-  { path: 'users', component: UserListComponent },
-    { path: 'foods', component: FoodListComponent },
+  { path: 'users', component: UserListComponent,  canActivate: ['canActivateForLoggedIn'] },
+    { path: 'foods', component: FoodListComponent, },
   { path: 'addUser', component: UserAddComponent  },
    { path: 'add', component: FoodAddComponent  },
   { path: 'edit/:userID', component: UserAddComponent},
-   { path: 'edit/:foodID', component: FoodAddComponent , canActivate: ['canActivateForLoggedIn']}
+   { path: 'edit/:foodID', component: FoodAddComponent , canActivate: ['canActivateForLoggedIn']},
+     { path: 'login', component:AuthComponent },
 ];
 
 @NgModule({

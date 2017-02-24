@@ -1,6 +1,7 @@
-import {Component} from "@angular/core";
-import template from "./app.component.html";
+import {Component } from "@angular/core";
+import template from './app.component.html';
 import style from "./app.component.scss";
+
 
 
 @Component({
@@ -8,8 +9,8 @@ import style from "./app.component.scss";
   template,
   styles: [style]
 })
-export class AppComponent {
-  constructor() {}
 
+export class AppComponent  {
+   user: Meteor.User;
 
 }

@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Foods } from '../../../both/collections/foods.collection';
 
-// Meteor.publish('foods', () => Foods.find());
+
 Meteor.publish('foods', function() {
  
       return Foods.find(buildQuery.call(this));

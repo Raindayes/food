@@ -18,8 +18,6 @@ import { Router } from '@angular/router';
 
 
 import { Accounts } from 'meteor/accounts-base';
-import { Tracker } from 'meteor/tracker';
-
 
 
 @Component({
@@ -28,18 +26,6 @@ import { Tracker } from 'meteor/tracker';
      styles : [style]
 })
 export class UserAddComponent {
-
-  autorunComputation: Tracker.Computation;
-  currentUser: Meteor.User;
-  currentUserId: string;
-  isLoggingIn: boolean;
-  isLoggedIn: boolean;
-  services: Array<any>;
-  errors: Array<string>;
-  isPasswordRecovery: boolean;
-  isSignup: boolean;
-  isDropdownOpen: boolean;
-  message: string;
 
 
   userID: string;
@@ -63,8 +49,6 @@ export class UserAddComponent {
   private _route: Router,
   private userService: UserDataService) {
  
-    this.resetErrors();
-    this.isSignup = false;
   
 
   //  if (!Meteor.userId()) {
@@ -117,20 +101,14 @@ ngOnInit () {
        }
      });
 }
-  
-    resetErrors() {
-    this.errors = [];
-    this.message = "";
-  }
 
 
- 
       onSubmit() {
       
-        this.resetErrors();
-             this.paramsSub = this.route.params.subscribe( params => {
-   this.userID =  params['userID'];  
+        this.paramsSub = this.route.params.subscribe( params => {
+         this.userID =  params['userID'];  
          if(!this.userID) {
+
     // Users.insert({
     //         username: this.myForm.value.username,
     //         email: this.myForm.value.email,
@@ -139,11 +117,14 @@ ngOnInit () {
     //         lname: this.myForm.value.lname,
     //         city: this.myForm.value.city,
     //         gender: this.myForm.value.gender,
-    // }, );
+            
+    // });
 
-      Accounts.createUser({
+     
+        Accounts.createUser({
             email: this.myForm.value.email,
             password: this.myForm.value.password,
+          
             profile: {
             username: this.myForm.value.username,
             fname: this.myForm.value.fname,
@@ -169,6 +150,7 @@ ngOnInit () {
     // console.log(this.base64.encodeFile(file));
     console.log('click');
     }
+
 
 
 //   onSubmit() {
