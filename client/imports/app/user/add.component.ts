@@ -19,7 +19,6 @@ import { Router } from '@angular/router';
 
 import { Accounts } from 'meteor/accounts-base';
 import { Tracker } from 'meteor/tracker';
-import { Images } from '../../../../both/collections/images.collection';
 
 
 
